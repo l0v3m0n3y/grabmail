@@ -84,9 +84,9 @@ public class grabMail{
         let bodyData = try? JSONSerialization.data(withJSONObject: [:], options: [])
         try await fetchJSON(
             from: "\(api)/message/\(mailId)",
-            queryParameters: ["mailbox": address],
+            method: .delete,
             body: bodyData,
-            method: .delete
+            queryParameters: ["mailbox": address]
         )
     }
 }
