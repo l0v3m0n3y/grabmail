@@ -61,20 +61,20 @@ public class grabMail{
     }
 
     public func getMessagesList(address: String,limit: Int = 50) async throws -> Any {
-        try await fetchJSON(
+        return try await fetchJSON(
             from: "\(api)/mailbox",
             queryParameters: ["address": address,"limit": String(limit)]
         )
     }
 
     public func getDomainsList() async throws -> Any {
-        try await fetchJSON(
+        return try await fetchJSON(
             from: "\(api)/picker"
         )
     }
 
     public func getMailMessage(address: String,mailId: String) async throws -> Any {
-        try await fetchJSON(
+        return try await fetchJSON(
             from: "\(api)/message/\(mailId)",
             queryParameters: ["mailbox": address]
         )
@@ -82,7 +82,7 @@ public class grabMail{
 
     public func deleteMailMessage(address: String,mailId: String) async throws -> Any {
         let bodyData = try? JSONSerialization.data(withJSONObject: [:], options: [])
-        try await fetchJSON(
+        return try await fetchJSON(
             from: "\(api)/message/\(mailId)",
             method: .delete,
             body: bodyData,
