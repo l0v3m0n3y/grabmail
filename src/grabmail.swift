@@ -80,7 +80,7 @@ public class grabMail{
         )
     }
 
-    public func getMailMessage(address: String,mailId: String) async throws -> Any {
+    public func deleteMailMessage(address: String,mailId: String) async throws -> Any {
         let bodyData = try? JSONSerialization.data(withJSONObject: [:], options: [])
         try await fetchJSON(
             from: "\(api)/message/\(mailId)",
