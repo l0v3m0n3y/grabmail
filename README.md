@@ -1,2 +1,16 @@
 # grabmail
 api for grabmail.io Temporary email addresses, and an API to read them. Pick any name, use it to sign up, verify or test — then read what arrived, in the browser or over HTTP.
+# main
+```swift
+import Foundation
+import grabmail
+
+let grab = grabMail()
+let domainsList = try await grab.getDomainsList()
+print(domainsList)
+```
+
+# Launch (your script)
+```
+swift run
+```
